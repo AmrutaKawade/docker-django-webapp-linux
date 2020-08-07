@@ -23,6 +23,7 @@ jobs:
         password: ${{ secrets.REGISTRY_PASSWORD }}
     
     - run: |
+        docker login docker.io -u ${{ secrets.REGISTRY_USERNAME }} -p ${{ secrets.REGISTRY_PASSWORD }}
         docker build . -t docker.io/amrutakawade/azurefunctionsimage:latest
         docker push docker.io/amrutakawade/azurefunctionsimage:latest 
       
