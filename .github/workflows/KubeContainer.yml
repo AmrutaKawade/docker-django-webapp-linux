@@ -23,10 +23,10 @@ jobs:
     
     - run: |
         docker login docker.io -u ${{ secrets.REGISTRY_USERNAME }} -p ${{ secrets.REGISTRY_PASSWORD }}
-        docker build . -t docker.io/azurefunctionsimage:${{ github.sha }}
-        docker push docker.io/azurefunctionsimage:${{ github.sha }} 
+        docker build . -t docker.io/azurefunctionsimage:latest
+        docker push docker.io/azurefunctionsimage:latest 
       
     - uses: AmrutaKawade/webapps-deploy@users/amkawade/lima-poc
       with:
         app-name: 'KubeConWebApp'
-        images: 'docker.io/azurefunctionsimage:${{ github.sha }}'
+        images: 'docker.io/azurefunctionsimage:latest
