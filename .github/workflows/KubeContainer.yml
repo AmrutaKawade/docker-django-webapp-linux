@@ -30,4 +30,4 @@ jobs:
     - uses: AmrutaKawade/webapps-deploy@users/amkawade/lima-poc
       with:
         app-name: 'KubeConWebApp'
-        images: 'docker.io/amrutakawade/azurefunctionsimage:${{ github.sha }}
+        images: 'docker.io/amrutakawade/azurefunctionsimage:${{ github.sha }}'
