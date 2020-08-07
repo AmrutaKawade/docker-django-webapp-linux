@@ -1,5 +1,6 @@
 name: Kube_Container_Workflow
-on: [push,workflow_dispatch]
+on: 
+  [push,workflow_dispatch]
 
 jobs:
   build-and-deploy:
@@ -22,11 +23,10 @@ jobs:
         password: ${{ secrets.REGISTRY_PASSWORD }}
     
     - run: |
-        docker login docker.io -u ${{ secrets.REGISTRY_USERNAME }} -p ${{ secrets.REGISTRY_PASSWORD }}
-        docker build . -t docker.io/azurefunctionsimage:latest
-        docker push docker.io/azurefunctionsimage:latest 
+        docker build . -t docker.io/amrutakawade/azurefunctionsimage:latest
+        docker push docker.io/amrutakawade/azurefunctionsimage:latest 
       
     - uses: AmrutaKawade/webapps-deploy@users/amkawade/lima-poc
       with:
         app-name: 'KubeConWebApp'
-        images: 'docker.io/azurefunctionsimage:latest
+        images: 'docker.io/amrutakawade/azurefunctionsimage:latest
